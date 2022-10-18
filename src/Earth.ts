@@ -41,8 +41,8 @@ export class Earth extends gfx.Transform3
 
         // 20x20 is reasonable for a good looking sphere
         // 150x150 is better for height mapping
-        //const meshResolution = 20;     
-        const meshResolution = 150;
+        const meshResolution = 20;     
+        //const meshResolution = 150;
 
         // A rotation about the Z axis is the earth's axial tilt
         this.naturalRotation.setRotationZ(-23.4 * Math.PI / 180); 
@@ -52,6 +52,7 @@ export class Earth extends gfx.Transform3
         // so they don't need to be member variables.
         const mapVertices: number[] = [];
         const mapNormals: number[] = [];
+        const texCoords: number[] = [];
         const indices: number[] = [];
         
         // As a demo, we'll add a square with 2 triangles.
@@ -67,6 +68,12 @@ export class Earth extends gfx.Transform3
         mapNormals.push(0, 0, 1);
         mapNormals.push(0, 0, 1);
 
+        // Create some default texture coordinates
+        texCoords.push(0, 0);
+        texCoords.push(0, 0);
+        texCoords.push(0, 0);
+        texCoords.push(0, 0);
+
         // Next we define indices into the array for the two triangles
         indices.push(0, 1, 2);
         indices.push(0, 2, 3);
@@ -75,7 +82,7 @@ export class Earth extends gfx.Transform3
         this.earthMesh.setVertices(mapVertices, true);
         this.earthMesh.setNormals(mapNormals, true);
         this.earthMesh.setIndices(indices);
-        this.earthMesh.setTextureCoordinates
+        this.earthMesh.setTextureCoordinates(texCoords);
         this.earthMesh.createDefaultVertexColors();
         this.earthMesh.material = this.earthMaterial;
 
