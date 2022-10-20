@@ -72,7 +72,7 @@ Use the `gfx.Mesh` class to draw a rectangle subdivided into multiple triangles,
 - Lie in the *xy* plane.
 - Have *x* values ranging from −*π* to *π*.
 - Have *y* values ranging from −*π*/2 to *π*/2.
-- Be divided into *n* columns horizontally and *m* rows vertically. (You will find these constants in the code. Note that this will produce (*n*+1)×(*m*+1) vertices and 2×*n*×*m* triangles.)
+- Be divided into *n* columns horizontally and *m* rows vertically. Note that this will produce (*n*+1)×(*m*+1) vertices and 2×*n*×*m* triangles.  For simplicity, the starter code sets both of these values using the single constant *meshResolution*.
 
 ![](./images/triangles.png)
 
@@ -93,7 +93,7 @@ In computer graphics, vertex normals need to be defined for lighting calculation
 
 In the starter code, the Earth texture is loaded and assigned to the example mesh.  However, it won't be displayed until you define the texture coordinates. We will go over this in class, but as a reminder, each vertex requires two coordinates, *u* and *v*, each of which should be a value between 0 and 1.
 
--  Assuming the *u* and *v* values are stored in an array called `texCoords`, you can assign them to the mesh using `this.earthMesh.setIndices()`.
+-  Assuming the *u* and *v* values are stored in an array called `texCoords`, you can assign them to the mesh using `this.earthMesh.setTextureCoordinates()`.
 
 #### 4. Displaying the Earthquakes
 
